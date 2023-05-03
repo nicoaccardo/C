@@ -1,0 +1,1 @@
+extern void conteggio(int n);
