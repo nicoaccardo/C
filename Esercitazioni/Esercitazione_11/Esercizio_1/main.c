@@ -1,16 +1,16 @@
 #include <stdio.h>
 #define SIZE 100
 
-void assegna(double* ptr_a, int dim);
-void stampaArray(double* ptr_a, int dim);
-void minimo(double* ptr_a, double* min, int dim);
-void massimo(double* ptr_a, double* max, int dim);
+void assegna(double* aPtr, const int dim);
+void stampaArray(const double* aPtr, const int dim);
+void minimo(const double* aPtr, double* const min, const int dim);
+void massimo(const double* aPtr, double* const max, const int dim);
 
 int main()
 {
     int x, y;
     double a[SIZE], b[SIZE];
-    double *min = a, *max = a;
+    double min, max;
 
     // Inserire i due insiemi di numeri
     puts("Quanti numeri inserirai nel primo array? ");
@@ -27,54 +27,56 @@ int main()
     stampaArray(b, y);
 
     // Calcolare il minimo
-    minimo(a, min, x);
-    minimo(b, min, y); 
-    printf("\nIl minimo è: %2.f\n ", *min);
+    minimo(a, &min, x);
+    minimo(b, &min, y); 
+    printf("\nIl minimo è: %.2f\n ", min);
 
     // Calcolare il massimo
-    massimo(a, max, x);
-    massimo(b, max, y); 
-    printf("\nIl massimo è: %2.f\n ", *max);
+    massimo(a, &max, x);
+    massimo(b, &max, y); 
+    printf("\nIl massimo è: %.2f\n ", max);
 
     return 0;
 }
 
-void assegna(double* ptr_a, int dim)
+void assegna(double* aPtr, const int dim)
 {
     for (size_t i = 0; i < dim; i++)
     {
         printf("Elemento[%ld]: ", i);
-        scanf("%lf", &(*(ptr_a+i)));
+        scanf("%lf", &(*(aPtr+i)));
     }
 }
 
-void stampaArray(double* ptr_a, int dim)
+void stampaArray(const double* aPtr, const int dim)
 {
     for (size_t i = 0; i < dim; i++)
     {
-        printf("Elemento[%ld]: %2.f\n", i, *(ptr_a+i));
+        printf("Elemento[%ld]: %.2f\n", i, *(aPtr+i));
     }
     
 }
 
-void minimo(double *ptr_a, double *min, int dim)
+void minimo(const double* aPtr, double* const min, const int dim)
 {
+    *min = *aPtr;
     for (size_t i = 0; i < dim; i++)
     {
-        if (*(ptr_a+i)<=*min)
+        if (*(aPtr+i)<=*min)
         {
-            *min=*(ptr_a+i);
+            *min=*(aPtr+i);
         }  
     }
 }
 
-void massimo(double *ptr_a, double *max, int dim)
+void massimo(const double* aPtr, double* const max, const int dim)
 {
+    *max = *aPtr;
     for (size_t i = 0; i < dim; i++)
     {
-        if (*(ptr_a+i)>=*max)
+        if (*(aPtr+i)>=*max)
         {
-            *max=*(ptr_a+i);
+            *max=*(aPtr+i);
         }  
     }
 }
