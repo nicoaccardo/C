@@ -1,43 +1,35 @@
 //**Definire una funzione ricorsiva che calcoli la funzione di Fibonacci 
 #include <stdio.h>
-
-int fibonacci(int n);
+int fibonacci (int x);
 
 int main(void){
 
-    int i, x;
-    printf("Che numero di Fibonacci vuoi? ");
-    scanf("%d", &i);
+    long int x, fib;
 
-    x = fibonacci(i);
-    if (x!=-1)  {
-    printf("Il numero di Fibonacci %d è: %d\n", i, x);
-    }
+    puts("Inserisci un valore x: ");
+    scanf("%ld", &x);
+
+    fib=fibonacci(x);
+
+    printf("Il risultato della funzione di fibonacci è: %ld\n", fib);
 
     return 0;
 }
 
-int fibonacci(int n)
+int fibonacci(int x)
 {
-    //Controllo degli errori
-    if (n<=0)
+    if (x==0)
     {
-        puts("Errore: la funzione di Fibonacci richiede input positivi");
-        return -1;
-    }
-    
-    //Caso base 1
-    if (n==1){
         return 0;
     }
-    //Caso base 2
-    else if (n==2){
+    
+    if (x==1)
+    {
         return 1;
     }
-    //Passo ricorsivo
-    else{
-        return fibonacci(n-1)+fibonacci(n-2);
+    
+    else
+    {
+        return fibonacci(x-1) + fibonacci (x-2);
     }
-
-    return 0;
 }
