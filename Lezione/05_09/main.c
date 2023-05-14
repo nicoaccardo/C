@@ -18,17 +18,17 @@ int main(void){
 
 int fibonacci(int x)
 {
-    if (x==0)
+    if (x==0)   //caso base 1
     {
         return 0;
     }
     
-    if (x==1)
+    if (x==1)   //caso base 2
     {
         return 1;
     }
     
-    else
+    else    //passo ricorsivo
     {
         return fibonacci(x-1) + fibonacci (x-2);
     }
