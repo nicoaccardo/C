@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #define MAXLINE 100
 void copiaStringa(char *stringaPtr1, char *stringaPtr2);
 void stringheUguali(char *stringaPtr1, char *stringaPtr2, char *ugualePtr);
@@ -15,6 +16,7 @@ int main() {
 
 
     //** Copiare una stringa in un'altra
+    //strcpy(stringa2, stringa1);
     // copiaStringa(stringa1, stringa2);
     puts("Inserisci la seconda stringa: ");
     scanf(" %[^\n]", stringa2);
@@ -24,7 +26,16 @@ int main() {
     stringheUguali(stringa1, stringa2, &uguale);
 
     //** Concatenare due stringhe
+    if ((strlen(stringa1)+strlen(stringa2))<MAXLINE)
+    {
     concatenaStringhe(stringa1, stringa2, stringaConcatenata);
+    printf("%s\n", stringaConcatenata);
+    } else
+    {
+        puts("Le due stringhe sono troppo lunghe");
+    }
+    
+    
 
     //** Trovare la prima occorrenza di un carattere in una stringa
 
@@ -41,8 +52,6 @@ void copiaStringa(char *stringaPtr1, char *stringaPtr2)
         *(stringaPtr2+i) = *(stringaPtr1+i);
     }
     *(stringaPtr2+i) = '\0';
-
-    
 }
 
 void stringheUguali(char *stringaPtr1, char *stringaPtr2, char *ugualePtr)
@@ -61,9 +70,17 @@ void stringheUguali(char *stringaPtr1, char *stringaPtr2, char *ugualePtr)
 
 void concatenaStringhe(char *stringaPtr1, char *stringaPtr2, char *stringaPtr3)
 {
-    for (size_t i = 0; *(stringaPtr1+i) != '\0'; i++)
+    size_t i;
+    for (i = 0; *(stringaPtr1+i) != '\0'; i++)
     {
-        /* code */
+        *(stringaPtr3+i) = *(stringaPtr1+i);
+    }
+
+    for (size_t j=0; *(stringaPtr2+j) != '\0'; j++)
+    {
+        *(stringaPtr3+i) = *(stringaPtr2+j);
+        i++;
     }
     
+    *(stringaPtr3+i) = '\0';
 }
