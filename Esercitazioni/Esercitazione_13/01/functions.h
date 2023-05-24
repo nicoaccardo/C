@@ -1,4 +1,4 @@
-extern void allocazioneDinamica(struct pietanza *p);
-extern void deAllocazione(struct pietanza *p);
-extern void letturaValori(struct pietanza *p);
-extern void stampaValori(struct pietanza *p);
+extern void allocazioneDinamica(Pietanza *p);
+extern void deAllocazione(Pietanza *p);
+extern void letturaValori(Pietanza *p);
+extern void stampaValori(Pietanza *p);

@@ -6,7 +6,7 @@
 
 int main(void){
 
-    struct pietanza piatto;
+    Pietanza piatto;
 
     printf("Inserisci il nome della pietanza: ");
     scanf("%[^\n]", piatto.nome);

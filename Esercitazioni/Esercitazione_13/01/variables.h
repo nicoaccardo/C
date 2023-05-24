@@ -9,3 +9,5 @@ struct pietanza
     unsigned int t_cottura;
     char tipologia[10];
 };
+
+typedef struct pietanza Pietanza;

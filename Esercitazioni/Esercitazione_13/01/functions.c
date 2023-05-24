@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "variables.h"
 
-void allocazioneDinamica(struct pietanza *p){
+void allocazioneDinamica(Pietanza *p){
 
     p->dosi = (int *) calloc(p->num_ingr, sizeof(int));
     p->ingredienti = (char **) calloc(p->num_ingr, sizeof(char));
@@ -12,7 +12,7 @@ void allocazioneDinamica(struct pietanza *p){
     }
 }
 
-void letturaValori(struct pietanza *p){
+void letturaValori(Pietanza *p){
 
     for (size_t i = 0; i < p->num_ingr; i++)
     {
@@ -29,7 +29,7 @@ void letturaValori(struct pietanza *p){
 
 }
 
-void stampaValori(struct pietanza *p){
+void stampaValori(Pietanza *p){
 
     printf("\nNome: %s\n", p->nome);
     puts("\nIngredienti:");
@@ -42,7 +42,7 @@ void stampaValori(struct pietanza *p){
     printf("È un: %s\n\n", p->tipologia);
 }
 
-void deAllocazione(struct pietanza *p){
+void deAllocazione(Pietanza *p){
 
     for (size_t i = 0; i < p->num_ingr; i++)
     {
