@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.c"
+#include "variables.h"
 
 void allocazioneDinamica(struct pietanza *p){
 
