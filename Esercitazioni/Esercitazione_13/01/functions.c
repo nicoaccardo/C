@@ -17,7 +17,7 @@ void letturaValori(Pietanza *p){
     for (size_t i = 0; i < p->num_ingr; i++)
     {
         puts("Inserisci il nome dell'ingrediente");
-        scanf(" %[^\n]", &(*p->ingredienti[i]));
+        scanf(" %[^\n]", p->ingredienti[i]);
         puts("Inserisci la sua dose in grammi:");
         scanf("%d", &p->dosi[i]);
     }
