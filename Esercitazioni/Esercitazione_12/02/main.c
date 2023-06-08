@@ -24,7 +24,8 @@ int main(void){
     {
         scanf("%d", &array[i]);
     }
-     //! SBAGLIATO
+    
+    //! SBAGLIATO
     max = maxvalue(array, dim);
 
     printf("Il valore massimo è: %d", max);
