@@ -1,0 +1,22 @@
+//Algoritmo presente in un esercizio di Algoritmi e strutture dati che da ricorsivo andava trasformato in iterativo
+
+#include <stdio.h>
+#define N 5
+
+int main(void) {
+
+    int A[N]={2,3,1,-2,5};
+    int B[N]={0,0,0,0,0};
+    int j=0;
+
+    for (size_t i = 0; i < N; i++)
+    {
+        B[i]=j+A[i];
+        j=B[i];
+    }
+
+    for (size_t i = 0; i < N; i++)
+    {
+        printf("%d", B[i]);
+    }
+}
